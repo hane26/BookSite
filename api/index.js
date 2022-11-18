@@ -1,5 +1,8 @@
 import express from "express"
 import mysql from "mysql"
+import cors from "cors"
+
+
 const app = express()
 
 
@@ -26,7 +29,7 @@ const db = mysql.createConnection({
 // we need to set up the middleware to be able to send data from the client to our express server
 // it will allow us to send data from the client to our express server
 app.use(express.json()) // this is the middleware that will allow us to send data from the client to our express server
-
+app.use(cors()) // this is the middleware that will allow us to send data from the client to our express server
 
 app.get("/", (req,res)=>{
     res.json("backend here ");
